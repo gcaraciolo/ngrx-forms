@@ -1,0 +1,17 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h1 mat-dialog-title>{{ 'Create a task' | translate }}</h1>
+  <div mat-dialog-content>
+    <p>{{ 'Organize your tasks to be more productive' | translate }}</p>
+    <mat-form-field appearance="standard" class="w-full">
+      <mat-label>{{ 'Title' | translate }}</mat-label>
+      <small matPrefix>{{ host }}/ &nbsp;</small>
+      <input type="text" matInput cdkFocusInitial formControlName="title" />
+      <mat-error>{{ form.get("title")?.errors?.serverError }}</mat-error>
+      <mat-hint>{{ 'Use a form text to fast recognize what to do' | translate }}</mat-hint>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions align="end">
+    <form-cancel-button mat-dialog-close></form-cancel-button>
+    <form-submit-button></form-submit-button>
+  </div>
+</form>
